@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedra, Papel ou Tesoura</title>
+    <script>
+        var escolhaUsuario = prompt(
+            "Escolha uma opção:\n" +
+            "1 - Pedra\n" +
+            "2 - Papel\n" +
+            "3 - Tesoura"
+        );
+
+        escolhaUsuario = parseInt(escolhaUsuario);
+
+        if (escolhaUsuario < 1 || escolhaUsuario > 3 || isNaN(escolhaUsuario)) {
+            alert("Escolha inválida.");
+        } else {
+            var numeroComputador = Math.floor(Math.random() * 3) + 1;
+
+            var opcoes = ["", "Pedra", "Papel", "Tesoura"];
+            var usuario = opcoes[escolhaUsuario];
+            var computador = opcoes[numeroComputador];
+
+            var resultado;
+
+            if (escolhaUsuario === numeroComputador) {
+                resultado = "Empate!";
+            } else if (
+                (escolhaUsuario === 1 && numeroComputador === 3) ||
+                (escolhaUsuario === 2 && numeroComputador === 1) ||
+                (escolhaUsuario === 3 && numeroComputador === 2)
+            ) {
+                resultado = "Você venceu!";
+            } else {
+                resultado = "O computador venceu!";
+            }
+
+            alert(
+                "Sua escolha: " + usuario +
+                "\nEscolha do computador: " + computador +
+                "\n\n" + resultado
+            );
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
